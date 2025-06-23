@@ -8,12 +8,10 @@ export const sensorSchema = z.object({
 });
 
 export const SENSOR_TYPES = [
-  { value: "water_level", label: "Water Level" },
-  { value: "water_quality", label: "Water Quality" },
-  { value: "flow_rate", label: "Flow Rate" },
-  { value: "pressure", label: "Pressure" },
-  { value: "temperature", label: "Temperature" },
-  { value: "multi_parameter", label: "Multi-Parameter" },
+  { value: "flowmeter_telemetry", label: "Flowmeter with Telemetry" },
+  { value: "piezometer_dwlr", label: "Piezometer with DWLR" },
+  { value: "water_analyzer", label: "Water Analyzer" },
+  { value: "aaqms", label: "AAQMS" },
 ];
 
 export const SENSOR_STATUS = [
