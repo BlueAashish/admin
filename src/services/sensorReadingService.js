@@ -5,7 +5,7 @@ export const useSensorReadingService = () => {
 
   const getSensorReadings = async (monitoringUnitId) => {
     return await api.get(
-      `/sensor-readings?monitoringUnitId=${monitoringUnitId}`
+      `/sensor-readings`
     );
   };
 

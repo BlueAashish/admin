@@ -17,7 +17,7 @@ const SensorData = () => {
   const fetchSensorReadings = async () => {
     try {
       setLoading(true);
-      const response = await getSensorReadings("MU004");
+      const response = await getSensorReadings();
       setSensorData(response.data);
       setError(null);
     } catch (err) {
@@ -46,28 +46,21 @@ const SensorData = () => {
 
   const columns = [
     {
-      key: "userId",
-      title: "User Email",
-      render: (userId) => userId?.email || "N/A",
-    },
-    {
       key: "monitoringUnitId",
       title: "Monitoring Unit",
     },
     {
+      key: "userId",
+      title: "User Email",
+      render: (userId) => userId?.email || "N/A",
+    },
+    
+    {
       key: "currentFlow",
-      title: "Current Flow",
+      title: "Parameters to monitor",
       render: (value) => `${value} L/min`,
     },
-    {
-      key: "status",
-      title: "Status",
-      render: () => (
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
-      ),
-    },
+    
     {
       key: "updatedAt",
       title: "Last Updated",

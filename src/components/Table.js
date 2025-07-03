@@ -6,6 +6,9 @@ const Table = ({ columns, data, onRowClick, className = "", actions }) => {
       <table className="w-full border-collapse">
         <thead>
           <tr className="bg-gray-50">
+            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 border-b border-gray-200">
+              S.No.
+            </th>
             {columns.map((column) => (
               <th
                 key={column.key}
@@ -26,9 +29,7 @@ const Table = ({ columns, data, onRowClick, className = "", actions }) => {
             <tr
               key={index}
               onClick={(e) => {
-                // Get the clicked cell
                 const cell = e.target.closest("td");
-                // If we're in the last cell (actions column), don't trigger row click
                 if (cell && cell === cell.parentElement.lastElementChild) {
                   return;
                 }
@@ -38,6 +39,9 @@ const Table = ({ columns, data, onRowClick, className = "", actions }) => {
                 onRowClick ? "cursor-pointer" : ""
               } ${className}`}
             >
+              <td className="px-6 py-4 text-sm text-gray-600 border-b border-gray-200">
+                {index + 1}
+              </td>
               {columns.map((column) => (
                 <td
                   key={column.key}
@@ -62,5 +66,6 @@ const Table = ({ columns, data, onRowClick, className = "", actions }) => {
     </div>
   );
 };
+
 
 export default Table;

@@ -6,9 +6,6 @@ import Navbar from "../components/Navbar";
 const adminLinks = [
   { to: "/admin/dashboard", label: "Dashboard" },
   { to: "/admin/borewell", label: "Assigned Sensors" },
-  { to: "/admin/flowmeter", label: "Flowmeter/Telemetry" },
-  { to: "/admin/water-analyzer", label: "Water Analyzer" },
-  { to: "/admin/aaqms", label: "AAQMS" },
   { to: "/admin/users", label: "User Management" },
   { to: "/admin/sensors", label: "Sensor Management" },
   { to: "/admin/sensor-data", label: "Sensor Data" },
