@@ -103,6 +103,7 @@ const Borewell = () => {
     },
     {
       key: "currentFlow",
+      
       title: "Current Flow",
       render: (v) => (v !== null ? v + " L/min" : "-"),
     },
