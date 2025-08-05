@@ -29,6 +29,10 @@ const Login = () => {
         // Assuming response: { token, role }
         if (res.token && res.user.role) {
           localStorage.setItem("token", res.token);
+          localStorage.setItem("fname", res.user.firstName);
+          localStorage.setItem("lname", res.user.lastName);
+          localStorage.setItem("email", res.user.email);
+
           localStorage.setItem("role", res.user.role);
           if (res.user.role === "admin") {
             navigate("/admin/dashboard");

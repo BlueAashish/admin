@@ -99,13 +99,13 @@ const Borewell = () => {
     {
       key: "totalFlow",
       title: "Total Flow",
-      render: (v) => (v !== null ? v + " L" : "-"),
+      render: (v) => (v !== null ? v + " m³" : "-"),
     },
     {
       key: "currentFlow",
       
       title: "Current Flow",
-      render: (v) => (v !== null ? v + " L/min" : "-"),
+      render: (v) => (v !== null ? v + " m³/h" : "-"),
     },
     {
       key: "updatedAt",
@@ -130,7 +130,7 @@ const Borewell = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">
-          Borewell Monitoring
+          Sensors Monitoring
         </h1>
         <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
           Export Data
@@ -138,7 +138,7 @@ const Borewell = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-xl font-semibold mb-4">Sensor Summary</h2>
+        <h2 className="text-xl font-semibold mb-4">Sensors Summary</h2>
         <Table
           columns={summaryColumns}
           data={sensorData}

@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
+import img from "../assets/Blue logo.png";
+
 
 const CustomerLayout = () => {
   const location = useLocation();
@@ -10,6 +12,9 @@ const CustomerLayout = () => {
     localStorage.removeItem("role");
     navigate("/login");
   };
+  const name = localStorage.getItem("fname") || "User";
+  const lastName = localStorage.getItem("lname") || "";
+  const email = localStorage.getItem("email") || ""
 
   const navigation = [
     {
@@ -18,38 +23,34 @@ const CustomerLayout = () => {
       icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
     },
     {
-      name: "Borewell",
+      name: "Sensors Data",
       path: "/client/borewell",
       icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
     },
-    {
-      name: "AAQMS",
-      path: "/client/aaqms",
-      icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
-    },
+  
   ];
-
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <aside className="w-64 h-full bg-gradient-to-b from-blue-900 to-blue-800 text-white flex flex-col">
         <div className="p-6 border-b border-blue-700">
-          <h1 className="text-2xl font-bold text-white flex items-center">
-            <svg
-              className="w-8 h-8 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
-            Bluetrack
-          </h1>
+         <h1 className="text-2xl font-bold text-white flex items-center">
+          {/* <svg
+            className="w-8 h-8 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg> */}
+          <img src={img} alt="Bluetrack" className="w-8 h-8 bg-transparent" />
+          Bluetrack
+        </h1>
         </div>
         <nav className="flex-1 overflow-y-auto py-4">
           {navigation.map((item) => {
@@ -86,11 +87,11 @@ const CustomerLayout = () => {
         <div className="p-4 border-t border-blue-700">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-              <span className="text-sm font-medium">JD</span>
+              <span className="text-sm font-medium">{`${name.split("")[0]}${lastName.split("")[0]}`}</span>
             </div>
             <div>
-              <p className="text-sm font-medium text-white">John Doe</p>
-              <p className="text-xs text-blue-200">john.doe@example.com</p>
+              <p className="text-sm font-medium text-white">{`${name} ${lastName}`}</p>
+              <p className="text-xs text-blue-200">{email}</p>
             </div>
           </div>
            <button

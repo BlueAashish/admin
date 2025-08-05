@@ -22,6 +22,7 @@ import SensorDataDetail from "./pages/admin/SensorDataDetail";
 import Login from "./pages/Login";
 import RequireAuth from "./components/RequireAuth";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BorewellSensorDetail from "./pages/customer/BorewellSensorDetail";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -64,6 +65,8 @@ function App() {
               <Route path="dashboard" element={<CustomerDashboard />} />
               <Route path="borewell" element={<CustomerBorewell />} />
               <Route path="aaqms" element={<CustomerAAQMS />} />
+              <Route path="borewell/detail" element={<BorewellSensorDetail />} />
+
             </Route>
           </Route>
         </Route>
